@@ -8,6 +8,11 @@ import { PointsDto } from './dto/points.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Post('reset')
+  reset() {
+    this.appService.reset();
+  }
+
   @Get('balance')
   balance(): string {
     // I'm going to hell for this

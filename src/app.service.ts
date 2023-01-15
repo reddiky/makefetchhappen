@@ -4,10 +4,10 @@ import { Balance, Payer, Transaction, Points } from './interface';
 
 @Injectable()
 export class AppService {
-  private readonly payers: {} = {};
-  private readonly balances: {} = {};
-  private readonly transactions: Transaction[] = [];
-  private readonly availableSpend: Transaction[] = [];
+  private payers: {} = {};
+  private balances: {} = {};
+  private transactions: Transaction[] = [];
+  private availableSpend: Transaction[] = [];
 
   private getPayerName(transaction: Transaction): string {
     const payer = new Payer(transaction.payer)
@@ -16,7 +16,13 @@ export class AppService {
     return payerName;
   }
 
-  
+  reset() {
+    this.payers = {};
+    this.balances = {};
+    this.transactions = [];
+    this.availableSpend = [];
+  }
+
   getBalance(): Object {
     return this.balances;
   }
