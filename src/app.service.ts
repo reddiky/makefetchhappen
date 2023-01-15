@@ -5,7 +5,7 @@ import { Balance, Payer, Transaction, Points } from './interface';
 @Injectable()
 export class AppService {
   private readonly payers: {} = {};
-  private readonly balances: Balance[] = [];
+  private readonly balances: {} = {};
   private readonly transactions: Transaction[] = [];
   private readonly availableSpend: Transaction[] = [];
 
@@ -17,16 +17,13 @@ export class AppService {
   }
 
   
-  getBalance(): Balance[] {
+  getBalance(): Object {
     return this.balances;
   }
 
-  
-  
   addTransaction(transaction: Transaction) {
     const payerName = this.getPayerName(transaction)
     this.payers[payerName];
-
     // make sure balance is defined and not zero
     this.balances[payerName] = this.balances[payerName] ? this.balances[payerName] : 0
     const points = this.balances[payerName] + transaction.points > 0 ? this.balances[payerName] + transaction.points : 0;
@@ -45,12 +42,6 @@ export class AppService {
     while (points > 0) {
       let transaction = this.availableSpend[spendPointer];
 
-
-      console.log('spend', spend)
-      console.log('balance', this.balances)
-      console.log('available spend', this.availableSpend)
-      console.log('transaction', transaction)
-      console.log('points', points)
       const payerName = this.getPayerName(transaction)
       
       if (transaction.points < 0) {
@@ -62,8 +53,6 @@ export class AppService {
         continue;
       }
       
-      // transaction is less than balance
-      //if (this.balances[payerName] >= transaction.points  ) 
         // transaction is less than total spend
         if (transaction.points <= points) {
           {
@@ -80,17 +69,10 @@ export class AppService {
           this.balances[payerName] =  this.balances[payerName] - points;
           spend[payerName] = Number.isInteger(spend[payerName]) ? spend[payerName] - points : -points;
           this.availableSpend[spendPointer].points = this.availableSpend[spendPointer].points - points;
-          // commented this line at 6;14
           points = points - transaction.points;
           break;
         }
     }
-    console.log('RETURNINGGGGSJFSD:LKFJSD:LFJSD:LFJSD:LFJ')
-    console.log('spend', spend)
-    console.log('balance', this.balances)
-    console.log('available spend', this.availableSpend)
-    console.log('points', points)
-
     return spend;
   }
 }

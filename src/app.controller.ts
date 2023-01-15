@@ -21,6 +21,7 @@ export class AppController {
 
   @Post('spendPoints')
   spendPoints(@Body() pointsDto: PointsDto): string {
+    // still going to hell
     return JSON.stringify(Object.assign({}, this.appService.spendPoints(pointsDto)));
   }
 }
