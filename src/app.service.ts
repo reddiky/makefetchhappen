@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Balance, Payer, Transaction, Points } from './interface';
+import { Transaction, Points } from './interface';
 
 
 @Injectable()
@@ -10,9 +10,9 @@ export class AppService {
   private availableSpend: Transaction[] = [];
 
   private getPayerName(transaction: Transaction): string {
-    const payer = new Payer(transaction.payer)
+    const { payer } = transaction;
     // only need one payer per spelling
-    const payerName = payer.name.toUpperCase();
+    const payerName = payer.toUpperCase();
     return payerName;
   }
 
@@ -25,6 +25,10 @@ export class AppService {
 
   getBalance(): Object {
     return this.balances;
+  }
+
+  getTransactions(): Transaction[] {
+    return this.transactions;
   }
 
   addTransaction(transaction: Transaction) {
@@ -41,6 +45,9 @@ export class AppService {
         new Date(t1.timestamp) < new Date(t2.timestamp) ? 1: -1)
   }
 
+
+  // This still has negative transactions edget case. Need to store available spend
+  // and throw an error and then restore if spend fails.
   spendPoints(pointsObj: Points): Object {
     let { points } = pointsObj;
     let spend = new Object();

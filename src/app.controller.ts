@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Balance } from './interface'
+import { Transaction } from './interface'
 import { CreateTransactionDto } from './dto/createTransaction.dto'; 
 import { PointsDto } from './dto/points.dto'; 
 
@@ -17,6 +17,17 @@ export class AppController {
   balance(): string {
     // I'm going to hell for this
     return JSON.stringify(Object.assign({}, this.appService.getBalance()));
+  }
+
+  @Get('availableFunds')
+  availableFunds(): string {
+    // sums all balances
+    return Object.values(Object.assign({}, this.appService.getBalance())).reduce((a,b) => a + b, 0);
+  }
+
+  @Get('getTransactions')
+  getTransactions(): Transaction[] {
+    return this.appService.getTransactions();
   }
 
   @Post('addTransaction')

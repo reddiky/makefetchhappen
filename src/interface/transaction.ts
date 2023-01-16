@@ -1,8 +1,5 @@
-import { Payer } from './payer';
-
 export class Transaction {
-    id: string;
-    payer: Payer;
+    payer: string;
     points: number;
     timestamp: Date;
   

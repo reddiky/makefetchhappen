@@ -1,8 +1,5 @@
-import { CreatePayerDto } from './createPayer.dto';
-
 export class CreateTransactionDto {
-  id: string
-  payer: CreatePayerDto;
+  payer: string;
   points: number;
   timestamp: Date;
 }
