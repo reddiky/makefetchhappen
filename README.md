@@ -12,7 +12,7 @@ It was a Wednesday, I was wearing pink.
  - Finally, you will need to run `npm install` to download the needed packages in both the main `makefetchhappen` directory and in the FE directory `./src/frontend`
 
 ### Running locally
-   First run `yarn start:dev:api` followed by `yarn start:dev:fe` in a new tab, both commands under the main directory, `makefetchhappen`.
+   First run `yarn start:dev:api` followed by `yarn start:dev:fe` in a new tab, both commands under the main directory, `makefetchhappen`. The app can then be tested [locally](http://localhost:8080) or through Insmonia or Postman on port `3000` (An Insmonia collection is included in the source code). 
 
 ### Running tests
    Tests can be run by typing `yarn test` in the main directory `makefetchhappen`
