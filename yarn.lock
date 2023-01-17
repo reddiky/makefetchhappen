@@ -4440,6 +4440,11 @@
   dependencies:
     "tslib" "^1.8.1"
 
+"ttab@^0.8.0":
+  "integrity" "sha512-ZsvrLuAJf52Joqo9aiLg1iygGz2l/hC5dKRrQ7W+k0LI7SN6m9bdF5hbpFm7WxEO4xE/pMMjFizd/5fdpNhoTA=="
+  "resolved" "https://registry.npmjs.org/ttab/-/ttab-0.8.0.tgz"
+  "version" "0.8.0"
+
 "type-check@^0.4.0", "type-check@~0.4.0":
   "integrity" "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew=="
   "resolved" "https://registry.npmjs.org/type-check/-/type-check-0.4.0.tgz"
