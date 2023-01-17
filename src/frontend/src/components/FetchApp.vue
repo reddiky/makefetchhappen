@@ -42,7 +42,7 @@
     },
     computed: {
       home() { 
-        return location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://www.makefetchhappen.xyz'
+        return location.hostname === 'localhost' ? 'http://localhost:3000' : 'http://www.makefetchhappen.xyz'
       },
       transactionButton() {
         return !(this.transaction.payer != '' && this.transaction.points > 0 && this.transaction.date)

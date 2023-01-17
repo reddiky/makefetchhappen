@@ -9,7 +9,7 @@ It was a Wednesday, I was wearing pink.
  - Make sure your computer has `npm`, if your computer does not have this, please go to the github repo for [nvm](https://github.com/nvm-sh/nvm) and install this package manager.
  - Next, you will need to make sure you have `yarn` installed.  The yarn [website](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) will get that process started for you.
  - Next, you will need to clone this project locally
- - Finally, you will need to run `npm install` to download the needed packages
+ - Finally, you will need to run `npm install` to download the needed packages in both the main `makefetchhappen` directory and in the FE directory `./src/frontend`
 
 ### Running locally
    First run `yarn start:dev:api` followed by `yarn start:dev:fe` in a new tab, both commands under the main directory, `makefetchhappen`.
@@ -26,4 +26,4 @@ It was a Wednesday, I was wearing pink.
 	 -- etc
 - The backend doesn't do a ton to prevent you from breaking the app. Specifically if you try to spend more points than you have, the app will just break.  Because I'm modifying state directly without storing it, if you go negative, the app errors out.  I can fix this by doing all of my data manipulation in shallow copies of the data before "saving" it if the transaction is valid.  I got distracted by pictures of dogs before completing this work.
 - I wanted to have actual data storage and user logins, but I've already spent more than 2 hours on this, so I'm just going to leave it as is.  I removed the `id` fields that I had added initially.  Should have known it was YAGNI from the start.
-- I only have tests for the basic `balance`, `addTransaction`, and `spendPoints` end points.  `reset` and `getTransactions` are only needed for the frontend end and aren't very interesting, but for thoroughness I should have added tests.
+- I only have tests for the basic `balance`, `addTransaction`, and `spendPoints` end points.  `reset` and `getTransactions` are only needed for the frontend and aren't very interesting, but for thoroughness I should have added tests.
